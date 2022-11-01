@@ -8,19 +8,17 @@ Created on Mon Oct 31 20:02:09 2022
 import uvicorn
 import pandas as pd
 import streamlit as st
-from datetime import date, timedelta
-import nsepy as ns
+from datetime import date
 from statsmodels.tsa.arima.model import ARIMA
-from prophet.plot import plot_plotly
 from plotly import graph_objs as go
 import pickle
 
 
 
-infosys_model = pickle.load(open('C:/Users/BHANUKIRAN/Desktop/arima/infosys_model_arima.sav', 'rb'))
-reliane_model = pickle.load(open('C:/Users/BHANUKIRAN/Desktop/arima/reliance_model_arima.sav', 'rb'))
-tatamotors_model = pickle.load(open('C:/Users/BHANUKIRAN/Desktop/arima/tatamotors_model_arima.sav', 'rb'))
-wipro_model = pickle.load(open('C:/Users/BHANUKIRAN/Desktop/arima/wipro_model_arima.sav', 'rb'))
+infosys_model = pickle.load(open('infosys_model_arima.sav', 'rb'))
+reliane_model = pickle.load(open('reliance_model_arima.sav', 'rb'))
+tatamotors_model = pickle.load(open('tatamotors_model_arima.sav', 'rb'))
+wipro_model = pickle.load(open('wipro_model_arima.sav', 'rb'))
 
 model_dict = {'Infosys': infosys_model,
               'Reliance': reliane_model,
@@ -28,10 +26,10 @@ model_dict = {'Infosys': infosys_model,
               'Wipro': wipro_model}
 
 
-infosys_data = pd.read_csv('C:/Users/BHANUKIRAN/Desktop/arima/infosys_daily_data.csv')
-reliane_data = pd.read_csv('C:/Users/BHANUKIRAN/Desktop/arima/reliance_daily_data.csv')
-tatamotors_data = pd.read_csv('C:/Users/BHANUKIRAN/Desktop/arima/tatamotors_daily_data.csv')
-wipro_data = pd.read_csv('C:/Users/BHANUKIRAN/Desktop/arima/wipro_daily_data.csv')
+infosys_data = pd.read_csv('infosys_daily_data.csv')
+reliane_data = pd.read_csv('reliance_daily_data.csv')
+tatamotors_data = pd.read_csv('tatamotors_daily_data.csv')
+wipro_data = pd.read_csv('wipro_daily_data.csv')
 
 
 
